@@ -1,0 +1,4 @@
+# Keep LF endings so shell scripts and Docker files work after cloning on Windows.
+* text=auto eol=lf
+*.pdf binary
+*.docx binary

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/
+.pytest_cache/
+.DS_Store
+.idea/
+.vscode/
+
+# Working notes. Not a deliverable, so this folder is not pushed.
+not-required/
+
+# Local case-study PDF — not part of the runnable project
+*.pdf
+!samples/*.pdf

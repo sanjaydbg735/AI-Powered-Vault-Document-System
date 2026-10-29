@@ -1,0 +1,43 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Contents 4 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 432 >>
+stream
+BT /F1 11 Tf 50 780 Td 15 TL (Northwind Analytics - Q3 2026 Financial Report) Tj T* (Revenue for the third quarter was 18.4 million USD, up 12 percent year over year.) Tj T* (Gross margin improved to 64 percent thanks to lower cloud infrastructure costs.) Tj T* (Operating expenses were 9.1 million USD, driven mainly by hiring in engineering.) Tj T* (The company ended the quarter with 42 million USD in cash and no debt.) Tj T* ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Contents 6 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+6 0 obj
+<< /Length 419 >>
+stream
+BT /F1 11 Tf 50 780 Td 15 TL (Outlook and Risks) Tj T* (Management expects Q4 revenue between 19 and 20 million USD.) Tj T* (The main risk is customer concentration: the top three customers represent 38 percent of revenue.) Tj T* (A currency hedge program will start in January 2027 to reduce exposure to the euro.) Tj T* (The board approved a share buyback of up to 5 million USD over the next twelve months.) Tj T* ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000730 00000 n 
+0000000856 00000 n 
+0000001326 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1396
+%%EOF

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vault — Document intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Outfit:wght@380;480;580&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css?v=3" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">V</span>
+      <div>
+        <strong>Vault</strong>
+        <span>Document intelligence</span>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <button type="button" class="nav on" data-action="nav" data-view="library">Library</button>
+      <button type="button" class="nav" data-action="nav" data-view="chat">Chat</button>
+      <button type="button" class="nav" data-action="nav" data-view="metrics">Metrics</button>
+    </nav>
+    <div class="session-tools">
+      <span id="health" class="health">Checking…</span>
+      <label class="key">
+        <span>API key</span>
+        <input id="api-key" type="text" spellcheck="false" autocomplete="off" value="dev-key" />
+      </label>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <label class="drop" id="drop">
+        <input id="file" type="file" multiple accept=".pdf,.docx,.txt,.md,.markdown,application/pdf,text/plain" />
+        <strong>Drop documents here</strong>
+        <span>PDF, DOCX, TXT, Markdown · up to 25 MB</span>
+      </label>
+      <button type="button" class="ghost wide" data-action="load-samples">Load sample documents</button>
+      <input id="doc-filter" type="search" placeholder="Filter by name, tag, category" aria-label="Filter documents" />
+      <div id="doc-list" class="doc-list" aria-live="polite"></div>
+      <div id="selection-bar" class="selection" hidden></div>
+    </aside>
+    <main id="main"></main>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div id="popover" class="popover" hidden></div>
+  <script src="/static/app.js?v=3" defer></script>
+</body>
+</html>

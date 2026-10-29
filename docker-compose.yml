@@ -1,0 +1,54 @@
+name: vault
+
+x-app: &app
+  build: .
+  env_file:
+    - path: .env
+      required: false  # without .env the app runs offline with defaults from app/core/config.py
+  environment:
+    DATABASE_URL: postgresql+asyncpg://vault:vault@postgres:5432/vault
+    REDIS_URL: redis://redis:6379/0
+    STORAGE_DIR: /data/uploads
+  volumes:
+    - uploads:/data/uploads
+  depends_on:
+    postgres: { condition: service_healthy }
+    redis: { condition: service_healthy }
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: vault
+      POSTGRES_PASSWORD: vault
+      POSTGRES_DB: vault
+    ports: ["${POSTGRES_PORT:-55432}:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vault -d vault"]
+      interval: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports: ["${REDIS_PORT:-56379}:6379"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      retries: 20
+
+  api:
+    <<: *app
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers"
+    ports: ["${API_PORT:-18000}:8000"]
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v1/health/ready')\""]
+      interval: 10s
+
+  worker:
+    <<: *app
+    command: celery -A app.workers.celery_app worker -Q ingest,analysis -c 4 --loglevel=INFO
+
+volumes:
+  pgdata:
+  uploads:
